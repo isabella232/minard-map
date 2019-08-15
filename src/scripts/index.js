@@ -1,4 +1,6 @@
 import mapboxgl from 'mapbox-gl';
+import campaign from '../data/campaign';
+console.log('campaign', campaign);
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicnlhbmhhbWxleSIsImEiOiJjaWszbmluaG8wMDAzdTBrc2Q3Ymk3b3l1In0.BxdMyaYKg_0-LwANjPybNA';
 
