@@ -12,11 +12,15 @@ const map = new mapboxgl.Map({
     zoom: 9 // starting zoom
 });
 
+const chunkedFeatures = [];
+
 for (let x = 0; x < campaign.features.length; x++) {
-  var feature = campaign.features[x];
-  var result = lineChunk(feature.geometry, 15, {units: 'miles'});
-  feature.geometry.coordinates = result;
+    const feature = campaign.features[x];
+    const result = lineChunk(feature.geometry, 15, {units: 'miles'});
+    chunkedFeatures.push(result.features);
 }
+
+campaign.features = chunkedFeatures.flat();
 
 map.on('load', () => {
     const geojson = {
